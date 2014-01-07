@@ -1,10 +1,17 @@
 // déclaration de variables globales
+	var data;
 	var maxMonth;
 	var maxValue;
 	var maxYear;
 	var minMonth;
 	var minValue;
 	var minYear;
+	var anneeSelectionnee;
+
+	var date = new Date();
+	var anneeCourante = date.getFullYear();
+	anneeSelectionnee = anneeCourante;
+	var moisLettre = ["","janv", "fev", "mar", "avr", "mai", "jui", "jui", "aou", "sep", "oct", "nov", "dec"];
 
 window.onload = function() {
 
@@ -19,9 +26,11 @@ var datastring = "idIntervenant=" + idIntervenant ;
 			 data: datastring, 
 			 jsonpCallback : 'afficherGraphique', 
 			 url: "http://sil2.ouvaton.org/agenda/ajax/getStatNumbers.php", 
-			 success: function(data, textStatus, jqXHR) { 
+			 success: function(dataServeur) { 
+			 	data=dataServeur;
+			 	  mettreAJourSelect(anneeCourante);
 			 }, 
-			 error : function(jqXHR, textStatus, errorThrown) { 
+			 error : function(errorThrown) { 
 			 alert(textStatus + " " + errorThrown) ; 
 			 } 
 		});
@@ -34,7 +43,6 @@ var datastring = "idIntervenant=" + idIntervenant ;
    Traite le json reçu du serveur, qui contient les stats
    ---------------------------------------------------------------------------------------------------------------------- */
 function afficherGraphique(data) {
-	console.log(data);
 
 	maxMonth = data['max.month'];
 	maxValue = data['max.value'];
@@ -48,7 +56,7 @@ function afficherGraphique(data) {
 	var scene = new Kinetic.Stage({
 	    container: "kinetic",
 	    width: 850,
-	    height: 550
+	    height: 550,
 	  });
 
 	var calque = new Kinetic.Layer();
@@ -108,9 +116,9 @@ function afficherGraphique(data) {
 
 
 	var txtAbscisse = new Kinetic.Text({
-			x: 760,
-			y: 510,
-			text: "mois/année",
+			x: 757,
+			y: 485,
+			text: "mois",
 			fontSize: 11,
 			fontFamily: "verdana",
 			Fill: "dodgerblue",
@@ -120,13 +128,14 @@ function afficherGraphique(data) {
 		calque.add(txtAbscisse);
 
 	var txtOrdonnee = new Kinetic.Text({
-			x: 4,
+			x: 55,
 			y: 15,
-			text: "RDV",
+			text: "Rendez-vous",
 			fontSize: 11,
 			fontFamily: "verdana",
 			Fill: "dodgerblue",
-			align: "center"
+			align: "center",
+			rotationDeg: 90
 		});
 
 		calque.add(txtOrdonnee);
@@ -156,24 +165,27 @@ function afficherGraphique(data) {
 
   scene.add(calque);
 
+
+
 }
 
 // Fonction de création des rectangles
 function creerRectangle(nombre, calque){
-	var moisAvecRDV = 0; // j'utilise cette variable pour creer un décalage si un mois n'a pas de rdv
-	for(var i=minMonth; i<=maxMonth; i++){
-		var mois = i;
-		if(i>=12) i=0;
+	var moisDessine = false; // bolléen qui me permet de savoir si le mois a déja été dessiné ou si il faut déssiner un mois vide
+	for(var mois=1; mois<=12; mois++){
 
-		if(nombre[moisAvecRDV].month == mois){
-			dessinerRectangle(nombre[moisAvecRDV],calque,i);
-			moisAvecRDV++;	// On incremente cette variable seulement quand on trouve un moi avec un rdv	
-		} else {
-			dessinerMoisVide(mois,calque,i)
+		for(var i=0; i<nombre.length; i++){	
+			if(anneeSelectionnee == nombre[i].year && nombre[i].month == mois){				
+					dessinerRectangle(nombre[i],calque,(mois-1));
+					moisDessine = true;
+			}
+			
+			if(!moisDessine){
+				dessinerMoisVide(mois,calque,(mois-1))
+			}
 		}
-		
-	}		
-
+		moisDessine = false;		
+	}
 	return calque;
 }
 
@@ -193,11 +205,12 @@ function dessinerRectangle(nombre,calque,num){
 	});
 	calque.add(rectangle);
 
+	
 	y = 505;
 	var texte = new Kinetic.Text({
 		x: x,
 		y: y,
-		text: nombre.month,
+		text: moisLettre[nombre.month],
 		fontSize: 11,
 		fontFamily: "verdana",
 		Fill: fill,
@@ -219,7 +232,7 @@ function dessinerMoisVide(mois,calque,num){
 	var texte = new Kinetic.Text({
 		x: x,
 		y: y,
-		text: mois,
+		text: moisLettre[mois],
 		fontSize: 11,
 		fontFamily: "verdana",
 		Fill: fill,
@@ -228,4 +241,23 @@ function dessinerMoisVide(mois,calque,num){
 	});
 
 	calque.add(texte);
+}
+
+function mettreAJourSelect(anneeCourante){
+	var select = $("#annee");
+	for(var annee=minYear; annee<=maxYear; annee++){
+		if(annee == anneeCourante){
+			select.append('<option value="' + annee + '" selected="selected">' + annee + '</option>');
+		}else{
+			select.append('<option value="' + annee + '">' + annee + '</option>');
+		}
+
+	}
+
+	select.change(function(){
+		anneeSelectionnee = select.val();
+		$("#kinectic").empty();
+		afficherGraphique(data);
+	});
+	
 }

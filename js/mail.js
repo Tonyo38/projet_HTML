@@ -14,5 +14,6 @@ $(document).ready( function() {
 						 alert(textStatus + " " + errorThrown) ; 
 						 } 
 						});
+			    return false; // pour ne pas envoyer le formulaire de maniere classique
 	});
 });
