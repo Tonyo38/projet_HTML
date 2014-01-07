@@ -1,0 +1,548 @@
+/*********************** Général ***************************/
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family:arial, sans-serif;
+}
+
+h1{
+
+    text-align: center;
+    text-transform: uppercase;
+
+    width: 95%;
+    font-size: 180%;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-width:0 0 1px 0;
+    border-style: solid;
+    border-color: dodgerblue;
+
+    /*au passage de la souris on met des ombres sur les textes*/
+    -webkit-text-shadow: 1px 1px 2px #6E6E6E;
+    -moz-text-shadow: 1px 1px 2px #6E6E6E;
+    -o-text-shadow: 1px 1px 2px #6E6E6E;
+    -ms-text-shadow: 1px 1px 2px #6E6E6E;
+    text-shadow: 1px 1px 2px #6E6E6E;
+}
+
+h2{
+    color: rgba(0,0,0,0.5);
+}
+
+.colorise{
+    max-height: 80px;
+    overflow: hidden;
+
+        -moz-transition: all 0.5s ease; 
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.colorise:hover{
+    background-color: rgba(51,153,255,0.3);
+    max-height: 600px;
+
+    -moz-transition: all 2s ease; 
+    -o-transition: all 2s ease;
+    -webkit-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    transition: all 2s ease;
+
+}
+
+/*********************** Menu ***************************/
+
+#cadreBleu{
+    position: fixed;
+    width: 100%;
+    height: 2%;
+    top:2%;
+
+    /* Navigateurs récents */
+    background: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(dodgerblue),
+        to(#FFFFFF)
+    );
+    background: -webkit-linear-gradient(
+        top,
+        dodgerblue,
+        #FFFFFF
+    );
+    background: -moz-linear-gradient(
+        top,
+        dodgerblue,
+        #FFFFFF
+    );
+    background: -o-linear-gradient(
+        top,
+        dodgerblue,
+        #FFFFFF
+    );
+    background: linear-gradient(
+        top,
+        dodgerblue,
+        #FFFFFF
+    );
+}
+#menu{
+   
+    width: 100%;
+    position: fixed;
+    top:0; 
+    width: 100%;
+    border-bottom: 1px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: rgba(0,0,0,0.9);
+    border-style: solid;
+    background-color: white;
+    z-index: 1;
+    font-weight: bold;
+        /*au passage de la souris on met des ombres sur les textes*/
+    -webkit-text-shadow: 0.5px 0.5px 1px #6E6E6E;
+    -moz-text-shadow: 0.5px 0.5px 1px #6E6E6E;
+    -o-text-shadow: 0.5px 0.5px 1px #6E6E6E;
+    -ms-text-shadow: 0.5px 0.5px 1px #6E6E6E;
+    text-shadow: 0.5px 0.5px 1px #6E6E6E;
+
+
+}
+#menu ul{
+    padding : 0;
+    margin: 0;
+}
+#menu ul li{
+    display: inline-block;
+    margin-left:2%;
+    text-align: center;
+}
+
+
+#menu a{
+    color:black;
+    text-decoration : none; 
+}
+
+#menu a:hover{
+    color:dodgerblue;
+    /* Pour que la coloraton se fasse avec une transition */       
+    -moz-transition: all 0.3s ease; 
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+
+
+/*********************** Corps ***************************/
+#corps{
+    margin-top: 3.5%;
+    width: 60%;
+    height: 80%;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/***********************    ***************************/
+/*********************** CV ***************************/
+/***********************    ***************************/
+.imgprofil{
+    width:10%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    /*Cette transition sert au retour a la normal*/
+    -moz-transition: all 0.5s; 
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.imgprofil:hover{
+    width:30%;
+
+    -moz-transition: all 0.5s; 
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#navTop{
+   position: fixed;
+   top:6%;
+   left: 1%; 
+}
+#navTop img{
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    -o-border-radius: 80px;
+    -ms-border-radius: 80px;
+    border-radius: 80px;
+
+    width: 15%;
+    height: 15%;
+
+    -webkit-transition:all .9s; // Chrome Safari
+    -moz-transition:all .9s;       // Mozilla
+    -o-transition:all .9s;           // Opéra
+    -ms-transition:all .9s;         // IE
+    transition:all .9s;
+}
+#navTop img:hover{
+
+    -webkit-transform:rotate(360deg); 
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg); 
+    -ms-transform:rotate(360deg); 
+    transform:rotate(360deg);
+
+    -webkit-transition:all .9s; // Chrome Safari
+    -moz-transition:all .9s;       // Mozilla
+    -o-transition:all .9s;           // Opéra
+    -ms-transition:all .9s;         // IE
+    transition:all .9s;
+}
+
+#infos,#sites article,#qualite article,#interes,#audio,#video,#experience,#formation{
+    margin:auto;
+}
+
+#infos,#sites article,#qualite article{
+    width: 31%;
+}
+
+#sites,#interes,#audio,#video,#presentation{
+    text-align: center;
+}
+
+
+#sites a{
+    color: dodgerblue;
+}
+#sites a:hover{
+    color: black;
+}
+audio, video{
+    width: 60%;
+}
+#experience article{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+#experience ul{
+
+list-style: none;
+}
+
+#formation{
+    text-align: center;
+}
+
+
+
+
+/*  ======================================================================================================================
+    Page Agenda
+    ====================================================================================================================== */
+
+#wait {
+    position : absolute ; 
+    height : 100px; 
+    display : block; 
+    text-align : center ; 
+    padding-top : 50px ;
+}
+
+#calendar { 
+    text-align : center ; 
+    display : none;
+    position : relative;
+    top : 30%;
+    width : 100%;
+    height: 100%;
+    color : black;
+    
+}
+
+/*  ======================================================================================================================
+    Entête (flèche mois précédent + nom / date + flèche mois suivant)
+    ====================================================================================================================== */
+
+#entete { 
+    font-size : 30px; 
+    color : rgba(0,0,0,0.85);
+    padding-top:3%;
+    width : 100%;
+
+}
+
+#previousMonth { 
+    float:left ;  
+    cursor : pointer ;
+    width: 2%;
+    margin-left: 30%;
+
+}
+#previousMonth img, #nextMonth img{
+    width: 100%;
+    height: 2%;    
+}
+
+#nextMonth { 
+    float:right ;  
+    cursor : pointer ;
+    width: 2%;
+    margin-right: 30%;
+}
+
+/*  ======================================================================================================================
+    Agenda
+    ====================================================================================================================== */
+
+#agenda { 
+    position : fixed;
+    top : 15%;
+    display : table ; 
+    clear : both ; 
+    border-collapse: separate; 
+    border-spacing: 3px 1px; 
+    margin : auto;
+    width: 98%;
+    height: 85%;
+}
+
+.ligne  { 
+    display : table-row;
+}
+
+.ligne:nth-child(odd){
+    background-color: #ABAEAC;
+}
+
+.ligne:nth-child(even) {
+    background-color: #C7C3C5;
+}
+
+.enteteLigne { 
+    display : table-cell ; 
+    font-weight:bold; 
+    text-align : center ; 
+    margin : 2px;
+    padding-right : 5px;
+    padding-left : 5px;
+    width: 12%;
+    vertical-align:middle;
+}
+
+.enteteColonne { 
+    display : table-cell ; 
+
+    font-weight:bold; 
+    text-align : center ; 
+    margin : 2px;
+    vertical-align:middle;
+}
+
+.enteteColonneHover{
+    background-color: grey;
+}
+.cellule { 
+    display : table-cell ; 
+    text-align : center ; 
+
+    min-width : 15px;
+    margin : 2px;
+    
+}
+
+[activite=disponible]{
+background-color: rgba(0,0,0,0.4);
+}
+
+
+[activite=travail] img{
+    width: 15px;
+    height: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    vertical-align:middle;
+}
+[activite=travail] {
+    vertical-align:middle;
+}
+[jourCourant]{
+    background-color: rgba(255,255,0,0.4);
+}
+[coloriage]{
+    background-color: rgba(255,255,255,0.4);
+}
+[cache]{
+    height: 0;
+}
+
+#rendezvous{
+    display: none;
+    width: 70%;
+    
+}
+#rendezvous form{
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+    text-align: right;
+    width: 92%;
+}
+
+#rendezvous label{
+    display: block;
+}
+
+#rendezvous span{
+    float: left;
+}
+
+/*  ======================================================================================================================
+    Statistique
+    ====================================================================================================================== */
+
+canvas {
+    border: 1px solid #000;
+}
+
+/*  ======================================================================================================================
+    Contact
+    ====================================================================================================================== */
+#adresse{
+    text-align: center;
+}
+#map, #panel {
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+}
+#map{
+    height: 500px;
+    border:none;
+}
+
+
+#contact p {
+  text-align: right;
+  clear: both;
+}
+
+
+#contact label{
+    margin-right:5%;
+
+}
+#contact span{
+    display: inline;
+}
+
+#contact div{
+    width: 350px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 60px;
+
+}
+#contact input{
+    width: 201px;
+}
+#contact textarea{
+    width: 201px;
+    float:right;
+}
+[required] {
+   border: 1px solid red;
+   width: 201px;
+}
+[required]:invalid {
+   background-color: rgba(51,153,255,0.3);
+}
+[required]:valid {
+   background-color: white;
+}
+
+#adresse p{
+    font-weight: bold;
+    font-size: 130%;
+
+}
+
+/*  ======================================================================================================================
+    meter pour Analyse et CV
+    ====================================================================================================================== */
+
+#progression meter, #qualite meter{
+    height: 20px;
+    width: 90px;   
+}
+#progression p, #qualite p {
+    width: 260px;
+    text-align: right;
+    clear: both;
+    margin-right: auto;
+    margin-left: auto;
+}
+#progression p span, #qualite p span{
+    float: left;
+}
+
+#progression article, #qualite article{
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+/*  ======================================================================================================================
+    Analyse
+    ====================================================================================================================== */
+
+#navigateur meter{
+    height: 20px;
+    width: 90px;   
+}
+#navigateur p{
+    width: 260px;
+    text-align: right;
+    clear: both;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom:3px;
+}
+#navigateur p span{
+    float: left;
+}
+
+#navigateur article{
+    text-align: center;
+    width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+#probleme{
+    text-align: center;
+}

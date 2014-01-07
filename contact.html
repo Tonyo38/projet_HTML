@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/> 
+		<title>Anthony GRASSANO</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&language=fr"></script>
+		<script type="text/javascript" src="js/map.js"></script>
+		<script type="text/javascript" src="js/mail.js"></script>
+
+
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+	</head>
+
+	<body>
+		<!-- Menu -->
+		<nav id="menu">			
+				<ul>
+					<li>
+						<a href="index.html">Accueil</a>
+					</li>
+					<li>
+				 		<a href="cv.html">CV</a>
+					</li>
+					<li>
+				 		<a href="agenda.html">Agenda</a>
+					</li>
+					<li>
+				 		<a href="statistique.html">Statistique</a>
+					</li>
+					<li>
+				 		<a href="analyse.html">Analyse</a>
+					</li>
+					<li>
+				 		<a href="contact.html">Contact</a>
+					</li>
+
+				</ul>
+		</nav>
+		<!-- End Menu -->
+		<div id="cadreBleu">
+
+		</div>
+		<!-- Corps -->
+		<section id="corps">
+			<section id="contact">
+				<h1>Contact</h1>
+				<div>
+					<form id="formulaire" methode="post">
+						<p>* indique que les champs sont obligatoires</p>
+						<p><span ><label for="nom">Nom : *</label></span>
+						<input type="text" name="nom" required/></p>
+						
+						<p><span ><label for="prenom">Prenom : *</label></span>
+						<input type="text" name="prenom" required/></p>
+						
+						<p><span ><label for="mail">Email : *</label></span>
+						<input type="email" name="mail" placeholder="nom@domain" required/></p>
+						
+						<p><span ><label for="telephone">Tel : *</label></span>
+						<input type="tel" name="telephone" placeholder="01.23.45.67.89" pattern="[0-9]{2}[.][0-9]{2}[.][0-9]{2}[.][0-9]{2}[.][0-9]{2}" required/></p>
+						
+						
+						<p><span ><label for="objet">Objet : *</label></span>
+						<input type="text" name="objet" placeholder="double clique pour choisir" list="objet_list" required/> 
+						<datalist id="objet_list"> 
+							<option value="Informations complémentaires"/> 
+		 					<option value="Rendez-vous"/> 
+		 					<option value="Nouveau poste"/> 
+		 					<option value="Projet"/> 
+						</datalist> </p>
+						
+						<p><span ><label for="commentaire">Commentaire : </label></span>
+						<textarea name="commentaire" rows="4" cols="35" placeholder="Entrez votre commentaire"></textarea> </p>
+						
+						<p><span ><input type="submit" name="submit" id="boutonEnvoyer" value="Envoyer"/></p>
+					</form>
+			</section>
+			<section id="adresse">
+				<h1>Adresse et itinéraire</h1>
+				<article>
+					<p>TRIXELL</p>
+					<p>460 rue du pommarin</p> 
+					<p>38430 Moirans</p>
+				<article>
+				<article id="map"></article>
+				<article id="panel"></article>
+
+			</section>
+
+			
+		</section>
+		<!-- fin Corps -->
+
+		<!-- Footer -->
+		<section id="footer">
+			
+		</section>
+		<!-- fin Footer -->
+
+
+	</body>
+</html>

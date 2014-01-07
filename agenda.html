@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/> 
+		<title>Anthony GRASSANO</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/agenda.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+	</head>
+
+	<body onload="initialiserAgenda()";>
+		<!-- Menu -->
+		<nav id="menu">			
+				<ul>
+					<li>
+						<a href="index.html">Accueil</a>
+					</li>
+					<li>
+				 		<a href="cv.html">CV</a>
+					</li>
+					<li>
+				 		<a href="agenda.html">Agenda</a>
+					</li>
+					<li>
+				 		<a href="statistique.html">Statistique</a>
+					</li>
+					<li>
+				 		<a href="analyse.html">Analyse</a>
+					</li>
+					<li>
+				 		<a href="contact.html">Contact</a>
+					</li>
+
+				</ul>
+		</nav>
+		<!-- End Menu -->
+		<div id="cadreBleu">
+
+		</div>
+
+			<div id="wait">
+			<img src="img/processing.gif"/>
+		</div>
+		
+		<section id="calendar">
+			<header id="entete">
+				<nav>
+					<div id="previousMonth"><img src="img/arrow_prev.png"/></div>
+					<div id="nextMonth"><img src="img/arrow_next.png"/></div>
+				</nav>
+				<section id="bandeau">
+					<span id="prenom"></span>
+					<span id="nom"></span>
+					<span id="dateAffichee"></span>
+				</section>
+			</header>
+			<section id="agenda">
+			</section>
+		</section>
+		<section id="rendezvous" title="Nouveau rendez-vous">
+			<form name="newRdv" id="formRdv" class="ui-widget-content">
+				<label>
+					<span>Nom :</span>
+					<input type="text" id="name" name="name">
+				</label>
+				<label>
+					<span>Objet :</span>
+					<input type="text" id="object" name="object">
+				</label>
+				<label>
+					<span>Tel :</span>
+					<input type="tel" id="tel" name="phone">
+				</label>
+				<label>
+					<span>Mail :</span>
+					<input type="email" id="mail" name="mail">
+				</label>
+				<label>
+					<span>Date :</span>
+					<input type="text" id="date" name="date" readonly>
+				</label>
+				<label>
+					<span>Début :</span>
+					<input type="time" id="debut" name="startTime" readonly>
+				</label>
+				<label>
+					<span>Fin :</span>
+					<input type="time" id="fin" name="endTime">
+				</label>
+				<input type="hidden" id="idIntervenant" name="idIntervenant">
+			</form>
+		</section>
+		<!-- Footer -->
+		<section id="footer">
+			
+		</section>
+		<!-- fin Footer -->
+
+
+	</body>
+</html>
