@@ -264,7 +264,8 @@ function afficherNouveauRDV(element) {
 			$("#" + id).attr("activite","travail");
 			$("#" + id).unbind("click");
 			var img = document.createElement("img");
-			img.src="img/event.png";
+			img.src="img/icone-rendezvous.png";
+			$("#" + id).empty();
 			$("#" + id).append(img);
 			$("#" + id).attr("idMeeting", element.newEvent.idMeeting);
 			$("#" + id).click(afficherRDV);
@@ -451,7 +452,8 @@ function MaJRDV(data){
 			$("#" + id).click(afficherRDV);
 			$("#" + id).attr("idMeeting", data[i].idMeeting);
 			var img = document.createElement("img");
-			img.src="img/event.png";
+			img.src="img/icone-rendezvous.png";
+			$("#" + id).empty();
 			$("#" + id).append(img);
 
 		}

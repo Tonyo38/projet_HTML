@@ -144,7 +144,7 @@ function afficherGraphique(data) {
 		for(var i=0;i<=500;i=i+50){
 		var valEchelle = maxValue - maxValue * i/500; // ce calcul permet d'adapter l'echelle en fonction de maxValue en utilisant le rapport i/500 
 												//qui correspond au rapport entre chaque niveau de l'echelle
-		valEchelle = valEchelle.toFixed(2); // permet de limiter a 2 chiffres après la virgule
+		valEchelle = valEchelle.toFixed(1); // permet de limiter a chiffres après la virgule
 		var echelle = new Kinetic.Text({
 			x: 10,
 			y: i,
