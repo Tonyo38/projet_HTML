@@ -28,7 +28,7 @@ var datastring = "idIntervenant=" + idIntervenant ;
 			 url: "http://sil2.ouvaton.org/agenda/ajax/getStatNumbers.php", 
 			 success: function(dataServeur) { 
 			 	data=dataServeur;
-			 	  mettreAJourSelect(anneeCourante);
+			 	mettreAJourSelect(anneeCourante); // on met a jour les années du select
 			 }, 
 			 error : function(errorThrown) { 
 			 alert(textStatus + " " + errorThrown) ; 
@@ -53,18 +53,20 @@ function afficherGraphique(data) {
 	var nombre = data['numbers'];
 	var width = 30;
 
+	// On créée la scene qui va contenir les calques
 	var scene = new Kinetic.Stage({
 	    container: "kinetic",
 	    width: 850,
 	    height: 550,
 	  });
 
+	// On créée le calque
 	var calque = new Kinetic.Layer();
 
 	
 	
 
-    // Ici on dessine sur le calque !
+    // Dessine les trait pour l'abscice et l'ordonnée
 	var abscisse_ordonnee = new Kinetic.Line({
 			points: [
 			40,0, 
@@ -76,6 +78,7 @@ function afficherGraphique(data) {
 		});
 	calque.add(abscisse_ordonnee);
 
+	// On dessine les fleche aux extrémités des lignes
 	var fleche = new Kinetic.Line({
 			points: [
 			40,0, 
@@ -114,7 +117,7 @@ function afficherGraphique(data) {
 
 
 
-
+	// On dessine le texte de l'abscisse et de l'ordonnée
 	var txtAbscisse = new Kinetic.Text({
 			x: 757,
 			y: 485,
@@ -141,6 +144,7 @@ function afficherGraphique(data) {
 		calque.add(txtOrdonnee);
 
 	// création de l'échelle
+	// La boucle va jusqu'a 500 pour parcourir entierement la ligne
 		for(var i=0;i<=500;i=i+50){
 		var valEchelle = maxValue - maxValue * i/500; // ce calcul permet d'adapter l'echelle en fonction de maxValue en utilisant le rapport i/500 
 												//qui correspond au rapport entre chaque niveau de l'echelle
@@ -192,10 +196,11 @@ function creerRectangle(nombre, calque){
 function dessinerRectangle(nombre,calque,num){
 	var fill = '#'+(Math.random()*0xFFFFFF<<0).toString(16); // Génération de couleurs aléatoire
 	var width = 30;
-	var height = nombre.number * (500/maxValue) ;
+	var height = nombre.number * (500/maxValue) ; // La taille s'adapte à la valeur max
 	var x = 60 * (num+1);
 	var y = 499-height;
 
+	// On dessine le rectangle
 	var rectangle = new Kinetic.Rect({
 		x: x,
 		y:y,
@@ -205,8 +210,9 @@ function dessinerRectangle(nombre,calque,num){
 	});
 	calque.add(rectangle);
 
-	
+	// On replace le y pour ecrir le texte en abscisse
 	y = 505;
+	// Ecriture du texte en abscisse qui correspond au rectangle dessiné précédemment
 	var texte = new Kinetic.Text({
 		x: x,
 		y: y,

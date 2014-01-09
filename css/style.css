@@ -17,8 +17,7 @@ h1{
 
     width: 95%;
     font-size: 160%;
-    margin-left: auto;
-    margin-right: auto;
+    
 
     border-width:0 0 1px 0;
     border-style: solid;
@@ -36,11 +35,22 @@ h2{
     color: rgba(0,0,0,0.5);
 }
 
+/* Elements Centrés */
+h1, #corps, .imgprofil,[activite=travail] img, #rendezvous form, #map, #panel,#contact div,
+#progression article, #qualite article, #progression p, #qualite p,#navigateur article,#navigateur p{
+    margin-left: auto;
+    margin-right: auto;
+}
+#infos,#sites article,#qualite article,#interes,#audio,#video,#experience,#formation{
+    margin:auto;
+}
+
+/* Classe qui permet de faire un accordeon avec les parties*/
 .colorise{
     max-height: 80px;
     overflow: hidden;
 
-        -moz-transition: all 0.5s ease; 
+    -moz-transition: all 0.5s ease; 
     -o-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
@@ -102,16 +112,13 @@ h2{
     width: 100%;
     position: fixed;
     top:0; 
-    border-bottom: 1px;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: rgba(0,0,0,0.9);
+    border-width: 0px 0px 1px;
+    border-color: rgba(0, 0, 0, 0.9);
     border-style: solid;
     background-color: white;
     z-index: 1;
     font-weight: bold;
-        /*au passage de la souris on met des ombres sur les textes*/
+
     -webkit-text-shadow: 0.5px 0.5px 1px #6E6E6E;
     -moz-text-shadow: 0.5px 0.5px 1px #6E6E6E;
     -o-text-shadow: 0.5px 0.5px 1px #6E6E6E;
@@ -153,8 +160,7 @@ h2{
     margin-top: 3.5%;
     width: 60%;
     
-    margin-left: auto;
-    margin-right: auto;
+    
 }
 
 /***********************    ***************************/
@@ -168,8 +174,7 @@ h2{
     -ms-border-radius: 100%;
     border-radius: 100%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    
 
     /*Cette transition sert au retour a la normal*/
     -moz-transition: all 0.5s; 
@@ -190,8 +195,8 @@ h2{
 
 #navTop{
    position: fixed;
-   top:6%;
-   left: 1%; 
+   top:95%;
+   left: 95%; 
 }
 #navTop img{
     -webkit-border-radius: 80px;
@@ -200,8 +205,8 @@ h2{
     -ms-border-radius: 80px;
     border-radius: 80px;
 
-    width: 23%;
-    height: 23%;
+    width: 40%;
+    height: 40%;
 
     -webkit-transition:all .9s; // Chrome Safari
     -moz-transition:all .9s;       // Mozilla
@@ -224,12 +229,10 @@ h2{
     transition:all .9s;
 }
 
-#infos,#sites article,#qualite article,#interes,#audio,#video,#experience,#formation{
-    margin:auto;
-}
+
 
 #infos,#sites article,#qualite article{
-    width: 31%;
+    width: 34%;
 }
 
 #sites,#interes,#audio,#video,#presentation{
@@ -385,8 +388,6 @@ background-color: rgba(0,0,0,0.4);
 [activite=travail] img{
     width: 20px;
     height: 20px;
-    margin-right: auto;
-    margin-left: auto;
     vertical-align:middle;
 }
 [activite=travail] {
@@ -408,8 +409,6 @@ background-color: rgba(0,0,0,0.4);
     
 }
 #rendezvous form{
-    margin-left: auto;
-    margin-right: auto;
     border: 0px;
     text-align: right;
     width: 92%;
@@ -442,8 +441,6 @@ background-color: rgba(0,0,0,0.4);
 }
 #map, #panel {
     width: 500px;
-    margin-right: auto;
-    margin-left: auto;
     margin-top: 10px;
 }
 #map{
@@ -468,8 +465,6 @@ background-color: rgba(0,0,0,0.4);
 
 #contact div{
     width: 350px;
-    margin-right: auto;
-    margin-left: auto;
     margin-bottom: 60px;
 
 }
@@ -509,17 +504,9 @@ background-color: rgba(0,0,0,0.4);
     width: 260px;
     text-align: right;
     clear: both;
-    margin-right: auto;
-    margin-left: auto;
 }
 #progression p span, #qualite p span{
     float: left;
-}
-
-#progression article, #qualite article{
-    margin-right: auto;
-    margin-left: auto;
-
 }
 
 /*  ======================================================================================================================
@@ -534,8 +521,6 @@ background-color: rgba(0,0,0,0.4);
     width: 260px;
     text-align: right;
     clear: both;
-    margin-right: auto;
-    margin-left: auto;
     margin-bottom:3px;
 }
 #navigateur p span{
@@ -545,8 +530,6 @@ background-color: rgba(0,0,0,0.4);
 #navigateur article{
     text-align: center;
     width: 700px;
-    margin-right: auto;
-    margin-left: auto;
 
 }
 

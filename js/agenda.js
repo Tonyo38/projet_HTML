@@ -377,7 +377,6 @@ for(var i=0; i<(data.length);i++){
 
 		// Si un jour existe les variables sont définis
 		if((data[i].matin_de && data[i].matin_a) || (data[i].aprem_de && data[i].aprem_a)){
-			// Parcours de toutes les cellules
 
 				// On déclare nos variables en récupérant le début de l'heure
 				var matinDe = parseInt(data[i].matin_de.split(':')[0]);
@@ -412,13 +411,15 @@ for(var i=0; i<(data.length);i++){
 					$("[jour=" + jour + "][heure=" + k + "]").attr("activite","disponible");
 				}
 
+				// On récupère l'heure minimal travaillé et l'heure maximal travaillé
+				// Ces données servent à la fonction MaJLigne()
 				if(matinDe<heureMinTravaille) heureMinTravaille = matinDe;
 				if(apremA>heureMaxTravaille) heureMaxTravaille = apremA;
 
 		}
 
 	}
-
+	// Maintenant que nos attributs sont bien placé on peut mettre à jour les lignes
 	MaJLigne();
 }
 
@@ -453,7 +454,7 @@ function MaJRDV(data){
 			$("#" + id).attr("idMeeting", data[i].idMeeting);
 			var img = document.createElement("img");
 			img.src="img/icone-rendezvous.png";
-			$("#" + id).empty();
+			$("#" + id).empty(); // On vide car de base la cellule contient un caractere
 			$("#" + id).append(img);
 
 		}
