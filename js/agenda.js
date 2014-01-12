@@ -305,8 +305,9 @@ function afficherRDV(event) {
       autoOpen: false,
       height: 400,
       width: 350,
-      modal: true,
-      buttons: {
+      modal: true, 
+      buttons: { // Je créer quand même les boutons pour qu'ils soient fonctionnels quand on créer un nouveau rdv.
+      			// Si on ne les créée pas ici aussi alors si on commence par afficher un rdv puis qu'on veut en créer un les bouttons ne seront pas chargés
       	"Creer rendez vous" :{
 	      	click : function() {
 	      		var datastring = $("#formRdv").serialize();
@@ -321,7 +322,7 @@ function afficherRDV(event) {
 	          	$( this ).dialog( "close" );
 	       	 },
 	       	 text : "Creer un nouveau rendez-vous",
-	       	 id : "submitRDV",
+	       	 id : "submitRDV", // On met un id pour pouvoir le selectionner et le cacher
 
 	    	}},
 	    close : function(){
